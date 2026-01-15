@@ -67,6 +67,43 @@ npm run build
 npm start
 ```
 
+## 🌐 Deployment
+
+### Deploy to GCP Cloud Run
+
+The application is fully configured for deployment to Google Cloud Platform's Cloud Run:
+
+#### Quick Deploy (Recommended)
+
+```bash
+# Make sure you have gcloud CLI installed and configured
+./deploy.sh
+```
+
+#### Manual Deployment
+
+```bash
+# Set your GCP project
+gcloud config set project YOUR_PROJECT_ID
+
+# Deploy directly from source
+gcloud run deploy stride-marketplace \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
+```
+
+For detailed deployment instructions, CI/CD setup, custom domains, and more, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Deploy to Other Platforms
+
+The Dockerfile is compatible with any container platform:
+- **AWS App Runner**: Use the Dockerfile
+- **Azure Container Apps**: Use the Dockerfile
+- **Heroku**: Use the Dockerfile or buildpacks
+- **Vercel/Netlify**: Direct Next.js deployment (no Docker needed)
+
 ## 📁 Project Structure
 
 ```
